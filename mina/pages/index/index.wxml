@@ -18,7 +18,7 @@
         </view>
         <button class="confirm-btn" open-type="getUserInfo"bindgetuserinfo="login" wx:if="{{regFlag==false}}">授权登陆</button>
 
-        <text class="copyright">@编程浪子 54php.cn</text>
+        <text class="copyright">星空订餐</text>
       </view>
     </view>
   </block>

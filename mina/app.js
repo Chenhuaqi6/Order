@@ -5,7 +5,7 @@ App({
     globalData: {
         userInfo: null,
         version: "1.0",
-        shopName: "Python3 + Flask 订餐全栈系统",
+        shopName: "欢迎使用星空点餐",
         domain:"http://192.168.43.128:8999/api"
     },
     tip:function( params ){
@@ -54,7 +54,8 @@ App({
     },
     getRequestHeader:function(){
         return {
-            'content-type': 'application/x-www-form-urlencoded'
+            'content-type': 'application/x-www-form-urlencoded',
+            'Authorization': this.getCache( "token" )
 
         }
     },
@@ -69,20 +70,18 @@ App({
       }
       return url + _paramUrl;
     },
-  getCache:function(key){
-    var value = undefined
-    try{
-      value = wx.getStorageSync(key)
-    } catch(e){
-
+    getCache:function( key ){
+        var value = undefined;
+        try {
+            value = wx.getStorageSync( key );
+        } catch (e) {
+        }
+        return value;
+    },
+    setCache:function(key,value){
+        wx.setStorage({
+             key:key,
+            data:value
+        });
     }
-    return value
-
-  },
-  setCache:function(key,value){
-    wx.setStorage({
-      key: key,
-      data:value,
-    })
-  }
 });

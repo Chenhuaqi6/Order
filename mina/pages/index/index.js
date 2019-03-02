@@ -101,7 +101,7 @@ Page({
                     return
                   }
                   app.setCache('token',res.data.data.token)
-                  taht.goToIndex
+                  that.goToIndex()
               }
             })
           }
